@@ -58,7 +58,9 @@ for find_sensor in sensor_choices:
         except ValueError:
             pass
     except Exception as e:
-        raise ImportError(f"Could not find the module {package} in your lib folder.") from e
+        raise ImportError(
+            f"Could not find the module {package} in your lib folder."
+        ) from e
 
 if found:
     print("Congratulations")
