@@ -14,5 +14,5 @@ Uses the fakerequests capabilities to create a small I2C temperature sensors dat
 look for the correct one.I
 
 .. literalinclude:: ../examples/fakerequests_advancedtest.py
-    :caption: examples/examples/fakerequests_advancedtest.py
+    :caption: examples/fakerequests_advancedtest.py
     :linenos:
