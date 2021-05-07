@@ -52,14 +52,16 @@ for find_sensor in sensor_choices:
         try:
             sensor = variable(i2c)
             print(
-                f"The sensor {class_name} gives a temperature of {sensor.temperature} Celsius"
+                "The sensor {} gives a temperature of {} Celsius".format(
+                    class_name, sensor.temperature
+                )
             )
             found = True
         except ValueError:
             pass
     except Exception as e:
         raise ImportError(
-            f"Could not find the module {package} in your lib folder."
+            "Could not find the module {} in your lib folder.".format(package)
         ) from e
 
 if found:
