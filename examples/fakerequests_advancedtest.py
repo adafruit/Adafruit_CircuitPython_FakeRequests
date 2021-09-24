@@ -27,7 +27,7 @@ print("Sensor address is:", hex(sensor_address))
 i2c.unlock()  # unlock the bus
 
 # Create an empty list for the sensors found in the database
-sensor_choices = list()
+sensor_choices = []
 
 # Compare the sensor found vs the database. this is done because
 # we could have the case that the same address corresponds to
