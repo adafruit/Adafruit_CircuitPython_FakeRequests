@@ -65,6 +65,11 @@ Usage Example
     response = Fake_Requests("local.txt")
     print(response.text);
 
+Documentation
+=============
+
+API documentation for this library can be found on `Read the Docs <https://circuitpython.readthedocs.io/projects/fakerequests/en/latest/>`_.
+
 Contributing
 ============
 
