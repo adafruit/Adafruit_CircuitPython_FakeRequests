@@ -35,11 +35,11 @@ class Fake_Requests:
 
     def json(self):
         """json parsed version for local requests."""
-        with open(self._filename, "r") as file:
+        with open(self._filename, "r") as file:  # pylint: disable=unspecified-encoding
             return json.load(file)
 
     @property
     def text(self):
         """raw text version for local requests."""
-        with open(self._filename, "r") as file:
+        with open(self._filename, "r") as file:  # pylint: disable=unspecified-encoding
             return file.read()
