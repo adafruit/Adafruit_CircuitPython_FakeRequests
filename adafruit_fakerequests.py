@@ -23,6 +23,11 @@ Implementation Notes
 
 import json
 
+try:
+    from typing import Any
+except ImportError:
+    pass
+
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_FakeRequests.git"
 
@@ -30,16 +35,16 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_FakeRequests.git"
 class Fake_Requests:
     """For faking 'requests' using a local file instead of the network."""
 
-    def __init__(self, filename):
+    def __init__(self, filename: str) -> None:
         self._filename = filename
 
-    def json(self):
+    def json(self) -> Any:
         """json parsed version for local requests."""
         with open(self._filename, "r") as file:
             return json.load(file)
 
     @property
-    def text(self):
+    def text(self) -> str:
         """raw text version for local requests."""
         with open(self._filename, "r") as file:
             return file.read()
