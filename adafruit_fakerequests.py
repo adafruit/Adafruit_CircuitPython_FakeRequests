@@ -40,11 +40,11 @@ class Fake_Requests:
 
     def json(self) -> Any:
         """json parsed version for local requests."""
-        with open(self._filename, "r") as file:
+        with open(self._filename) as file:
             return json.load(file)
 
     @property
     def text(self) -> str:
         """raw text version for local requests."""
-        with open(self._filename, "r") as file:
+        with open(self._filename) as file:
             return file.read()

@@ -5,7 +5,9 @@
 Example showing the use of Fake_requests to access a Temperature Sensor information
 Database. Inspired on the I2C buddy and a Discussion with Hugo Dahl
 """
+
 import board
+
 from adafruit_fakerequests import Fake_Requests
 
 # Create the fakerequest request and get the temperature sensor definitions
@@ -51,18 +53,12 @@ for find_sensor in sensor_choices:
         variable = getattr(module, class_name)
         try:
             sensor = variable(i2c)
-            print(
-                "The sensor {} gives a temperature of {} Celsius".format(
-                    class_name, sensor.temperature
-                )
-            )
+            print(f"The sensor {class_name} gives a temperature of {sensor.temperature} Celsius")
             found = True
         except ValueError:
             pass
     except Exception as e:
-        raise ImportError(
-            "Could not find the module {} in your lib folder.".format(package)
-        ) from e
+        raise ImportError(f"Could not find the module {package} in your lib folder.") from e
 
 if found:
     print("Congratulations")
