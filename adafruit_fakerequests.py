@@ -24,7 +24,7 @@ Implementation Notes
 import json
 
 try:
-    from typing import Any
+    from typing import Any, Optional
 except ImportError:
     pass
 
@@ -40,7 +40,9 @@ class Fake_Requests:
     :param int status_code: Status code to use to the faked response.
     """
 
-    def __init__(self, filename: str, headers=None, status_code=200) -> None:
+    def __init__(
+        self, filename: str, headers: Optional[dict] = None, status_code: int = 200
+    ) -> None:
         self._filename = filename
         if headers is None:
             self.headers = {"content-type": "application/json"}
