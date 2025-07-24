@@ -24,7 +24,7 @@ Implementation Notes
 import json
 
 try:
-    from typing import Any
+    from typing import Any, Optional
 except ImportError:
     pass
 
@@ -33,10 +33,22 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_FakeRequests.git"
 
 
 class Fake_Requests:
-    """For faking 'requests' using a local file instead of the network."""
+    """For faking 'requests' using a local file instead of the network.
 
-    def __init__(self, filename: str) -> None:
+    :param string filename: Name of the file to read.
+    :param dict headers: Headers to add to the faked response.
+    :param int status_code: Status code to use to the faked response.
+    """
+
+    def __init__(
+        self, filename: str, headers: Optional[dict] = None, status_code: int = 200
+    ) -> None:
         self._filename = filename
+        if headers is None:
+            self.headers = {"content-type": "application/json"}
+        else:
+            self.headers = headers
+        self.status_code = status_code
 
     def json(self) -> Any:
         """json parsed version for local requests."""
